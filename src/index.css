@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .checkoutInputField{
+        @apply font-dm text-[#767676] font-normal text-sm outline-none border-[#F0F0F0] border-b-2 w-full
+    }
+    .checkoutInputLabel{
+        @apply font-dm text-[#262626] font-bold text-base w-full mb-[10px] inline-block
+    }
+}
