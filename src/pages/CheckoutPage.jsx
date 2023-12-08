@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BreadCrumb from '../components/utilities/BreadCrumb'
 import Flex from '../components/utilities/Flex'
 import { Link } from 'react-router-dom'
 import Input from '../components/utilities/Input'
+import CupponCard from '../components/utilities/CupponCard'
 
 const CheckoutPage = () => {
   let pathName = window.location.href
   let pathArr = pathName.split('/')
   let finalPath = pathArr[pathArr.length - 1]
+
+  let [cupponShow, setCupponShow] = useState(false)
+  let handleCuppon = ()=>{
+    if (cupponShow) {
+      setCupponShow(false)
+    }else{
+      setCupponShow(true)
+    }
+  }
   return (
     <section>
       <div className="max-w-container mx-auto">
@@ -16,9 +26,12 @@ const CheckoutPage = () => {
             <h3 className='font-dm text-[#262626] font-bold text-[49px]'>Checkout</h3>
             <BreadCrumb pathLastChild={finalPath}/>
           </div>
-          <Flex className='gap-2 mb-[119px]'>
+          <Flex className='gap-2 mb-[139px] relative'>
             <span className='font-dm text-[#767676] font-normal leading-[30px] text-base'>Have a coupon?</span>
-            <Link className='font-dm text-black font-normal leading-[30px] text-base'>Click here to enter your code</Link>
+            <Link onClick={handleCuppon} className='font-dm text-black font-normal leading-[30px] text-base'>Click here to enter your code</Link>
+            {cupponShow &&
+              <CupponCard/>
+            }
           </Flex>
           <h3 className='font-dm text-[#262626] font-bold text-[39px] mb-[42px]'>Billing Details</h3>
           <div className="formStart w-full">
@@ -95,6 +108,9 @@ const CheckoutPage = () => {
             </div>
           </div>
           <div className="mt-[68px] px-[34px] py-[26px]">
+
+
+
             <div className="">
               <Flex className='gap-3 items-center'>
                 <input type="radio"/>

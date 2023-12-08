@@ -42,8 +42,8 @@ const Cart = () => {
                 <Flex className='flex-col bg-[#FFF] p-5'>
                     <h3 className='font-dm text-[#767676] font-normal leading-[23px] not-italic text-[23px]'>Subtotal: $44.00</h3>
                     <Flex className='justify-between mt-[13px] gap-[20px]'>
-                        <Link to='/cartpage' className='font-dm text-[#262626] font-bold leading-normal not-italic text-base px-[35px] py-4 border-[1px] border-solid border-[#2B2B2B] transition-all duration-500 hover:bg-black hover:text-white'>View Cart</Link>
-                        <Link to='/checkoutpage' className='font-dm text-[#262626] font-bold leading-normal not-italic text-base px-[35px] py-4 border-[1px] border-solid border-[#2B2B2B] transition-all duration-500 hover:bg-black hover:text-white'>Checkout</Link>
+                        <Link to='/cartpage' className='commonButton_1'>View Cart</Link>
+                        <Link to='/checkoutpage' className='commonButton_1'>Checkout</Link>
                     </Flex>
                 </Flex>
             </Flex>

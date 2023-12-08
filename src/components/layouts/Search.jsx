@@ -81,7 +81,7 @@ const Search = () => {
                     </div>
                     <div className='relative'>
                         <Input placeholder='Search Products' className='font-dm text-[#C4C4C4] font-normal leading-normal not-italic text-base w-[600px] py-4 pl-5 pr-12 outline-[#979797] bg-[#FFFFFF]'/>
-                        `<IoSearch className='absolute right-4 top-1/2 -translate-y-1/2'/>`
+                        <IoSearch className='absolute right-4 top-1/2 -translate-y-1/2'/>
                     </div>
                     <Flex className='gap-10' >
                         <div className='' ref={profileRef}>

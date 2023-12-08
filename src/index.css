@@ -9,4 +9,7 @@
     .checkoutInputLabel{
         @apply font-dm text-[#262626] font-bold text-base w-full mb-[10px] inline-block
     }
+    .commonButton_1{
+        @apply font-dm text-[#262626] font-bold leading-normal not-italic text-base px-[35px] py-4 border-[1px] border-solid border-[#2B2B2B] transition-all duration-500 hover:bg-black hover:text-white
+    }
 }
