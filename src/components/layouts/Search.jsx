@@ -71,7 +71,7 @@ const Search = () => {
             <div className="max-w-container mx-auto">
                 <Flex className='justify-between items-center'>
                     <div ref={catagoryRef}>
-                        <Flex className='gap-3 items-center relative cursor-pointer'>
+                        <Flex className='gap-3 items-center relative cursor-pointer '>
                             <FaBarsStaggered onClick={()=>setCatagoryCart(!catagoryCart)} />
                             <p className='font-dm text-[#262626] font-normal leading-normal not-italic text-base'>Shop by Category</p>
                             {catagoryCart &&

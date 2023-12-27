@@ -1,11 +1,26 @@
 import React, { useState } from 'react'
-import BannerImg from '../utilities/home/banner/BannerImg'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import BannerImage1 from '../../assets/images/banner.jpg'
+import BannerImage2 from '../../assets/images/bann.jpg'
+import { Link } from 'react-router-dom';
+import Image from '../utilities/Image';
 
 const Banner = () => {
   let [dotActive, setdotActive] = useState(0)
+
+  let imageArr = [
+    {
+      src: { BannerImage1 },
+      id: "01"
+    },
+    {
+      src: { BannerImage2 },
+      id: "02"
+    }
+  ]
+
   let settings = {
     beforeChange: (prev, next)=>{
       setdotActive(next)
@@ -58,15 +73,16 @@ const Banner = () => {
     <>
 
       <Slider {...settings}>
-        <div className='!block w-full h-[597px] '>
-           <BannerImg/>
-        </div>
-        <div className='!block h-[597px] '>
-           <BannerImg/>
-        </div>
-        <div className='!block h-[597px] '>
-           <BannerImg/>
-        </div>
+            <div className='!block w-full h-[597px] '>
+              <Link className='overflow-hidden outline-none'  to='#'>
+                <Image className='w-full h-full object-cover' source={BannerImage1}/>
+              </Link>
+            </div>
+            <div className='!block w-full h-[597px] '>
+              <Link className='overflow-hidden outline-none'  to='#'>
+                <Image className='w-full h-full object-cover' source={BannerImage1}/>
+              </Link>
+            </div>
       </Slider>
         
     </>

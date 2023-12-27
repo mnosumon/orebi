@@ -12,5 +12,11 @@
     .commonButton_1{
         @apply font-dm text-[#262626] font-bold leading-normal not-italic text-base px-[35px] py-4 border-[1px] border-solid border-[#2B2B2B] transition-all duration-500 hover:bg-black hover:text-white
     }
+    .traingle{
+        @apply after:content-[""] after:absolute after:-top-[15%] after:left-10 
+        after:border-l-[10px] after:border-l-transparent after:border-r-[10px] after:border-r-transparent after:border-b-[10px] after:border-b-[#F7F8F9]
+    }
 }
+
+
 

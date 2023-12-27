@@ -49,7 +49,7 @@ const Cart = () => {
   return (
     <>  
         <ToastContainer />
-        <div className='w-[360px] h-[240px] absolute top-8 right-0 '>
+        <div className='w-[360px] h-[240px] absolute top-8 right-0 z-10'>
             <Flex className='flex-col border-[#262] border-[1px]'>
                 <Flex className='flex-col bg-[#F5F5F3] p-5 gap-3'>
                     {

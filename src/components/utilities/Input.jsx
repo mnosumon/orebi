@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Input = ({placeholder, type, name, className}) => {
+const Input = ({placeholder, type, name, className, change}) => {
   return (
     <form action="search">
-        <input className={className} type={type} placeholder={placeholder} name={name}/>
+        <input onChange={change} className={className} type={type} placeholder={placeholder} name={name}/>
     </form>
   )
 }
