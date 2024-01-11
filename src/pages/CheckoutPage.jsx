@@ -78,7 +78,6 @@ const CheckoutPage = () => {
       setTotal(total);
     }
   },[])
-  
   return (
     <section>
       <div className="max-w-container mx-auto">

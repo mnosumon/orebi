@@ -31,7 +31,7 @@ const Cart = () => {
     ])
     let cartListRemove = (item)=>{
         let updateCart = itemDelate.filter((cartItem)=>
-            cartItem.id !== item.id
+           cartItem.id !== item.id
         )
         setItemDelete(updateCart)
         toast.info('Successfully remove', {
@@ -44,7 +44,9 @@ const Cart = () => {
             progress: undefined,
             theme: "dark",
         });
+        
     }
+  
 
   return (
     <>  
