@@ -10,6 +10,8 @@ const CheckoutPage = () => {
   let pathArr = pathName.split('/')
   let finalPath = pathArr[pathArr.length - 1]
 
+  let countryName = ["United States", "Canada", "Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and/or Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Cook Islands", "Costa Rica", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecudaor", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France, Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kosovo", "Kuwait", "Kyrgyzstan", "Lao People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfork Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia South Sandwich Islands", "South Sudan", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbarn and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States minor outlying islands", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City State", "Venezuela", "Vietnam", "Virigan Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zaire", "Zambia", "Zimbabwe"]
+
   let [bankCard, setBankCard] = useState(false)
   let bankCardShow = ()=>{
     if (!bankCard) {
@@ -86,7 +88,7 @@ const CheckoutPage = () => {
             <h3 className='font-dm text-[#262626] font-bold text-[49px]'>Checkout</h3>
             <BreadCrumb pathLastChild={finalPath}/>
           </div>
-          <Flex className='gap-2 mb-[139px] relative'>
+          <Flex className='gap-2 mb-[100px] relative'>
             <span className='font-dm text-[#767676] font-normal leading-[30px] text-base'>Have a coupon?</span>
             <Link onClick={handleCuppon} className='font-dm text-black font-normal leading-[30px] text-base'>Click here to enter your code</Link>
             {cupponShow &&
@@ -95,7 +97,7 @@ const CheckoutPage = () => {
           </Flex>
           <h3 className='font-dm text-[#262626] font-bold text-[39px] mb-[42px]'>Billing Details</h3>
           <div className="formStart w-full">
-          <Link onClick={formSubmit} className='font-dm text-white font-bold text-sm inline-block py-4 px-10 bg-[#262626]'>Proceed to Bank</Link>
+          
             <form action="">
               <Flex className='gap-[39px] mb-6'>
                 <div className="w-1/2">
@@ -118,6 +120,16 @@ const CheckoutPage = () => {
               <div className="mb-6">
                 <label className='checkoutInputLabel' htmlFor="companyName">Companye Name (optional)</label>
                 <Input type='text' placeholder='Company Name' name='company' className='checkoutInputField'/>
+              </div>
+              <div className="mb-6">
+                <label className='checkoutInputLabel' htmlFor="country">County*</label>
+                <select name="country" id="" className='checkoutInputField'>
+                  {
+                    countryName.map((item, index)=>(
+                      <option key={index} value="">{item}</option>
+                    ))
+                  }
+                </select>
               </div>
               <div className="mb-6">
                 <label className='checkoutInputLabel' htmlFor="streetAddress">Street Address *</label>
@@ -186,7 +198,7 @@ const CheckoutPage = () => {
           <div className="mt-[68px] px-[34px] py-[26px]">
             <div className="">
               <Flex className='gap-3 items-center'>
-                <input onClick={bankCardShow} type="radio"/>
+                <input onClick={bankCardShow} type="radio" name='bank'/>
                 <label className='font-dm text-[#262626] font-bold text-base' htmlFor="radioButton">Bank</label>
               </Flex>
             </div>
@@ -197,12 +209,12 @@ const CheckoutPage = () => {
               }
               <div className="">
                 <Flex className='gap-3 items-center'>
-                  <input onClick={bankCardFalse} type="radio"/>
+                  <input onClick={bankCardFalse} type="radio" name='bank'/>
                   <label className='font-dm text-[#262626] font-bold text-base' htmlFor="radioButton">Bank 2</label>
                 </Flex>
               </div>
               <p className='font-dm text-[#767676] font-normal leading-[30px] text-base my-5'>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <Link className='font-dm text-[#262626] font-bold text-base inline-block'>privacy policy.</Link></p>
-              
+              <Link onClick={formSubmit} className='font-dm text-white font-bold text-sm inline-block py-4 px-10 bg-[#262626]'>Proceed to Bank</Link>
             </div>
           </div>
         </div>

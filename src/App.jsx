@@ -21,6 +21,7 @@ import Others from './pages/myAccount/Others';
 import AccountDetails from './pages/myAccount/AccountDetails';
 import Addresses from './pages/myAccount/Addresses';
 import Logout from './pages/myAccount/Logout';
+import Login from './pages/Login';
 
 
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
             <Route path='/journal' element={<Journal/>}/>
             <Route path='/cartpage' element={<CartPage/>}/>
             <Route path='/checkoutpage' element={<CheckoutPage/>}/>
+            <Route path='/login' element={<Login/>}/>
             <Route element={<MyAccount/>}>
               <Route index path='/dashbord' element={<Dashbord/>}/>
               <Route path='/download' element={<Download/>}/>
