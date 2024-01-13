@@ -16,6 +16,9 @@
         @apply after:content-[""] after:absolute after:-top-[15%] after:left-10 
         after:border-l-[10px] after:border-l-transparent after:border-r-[10px] after:border-r-transparent after:border-b-[10px] after:border-b-[#F7F8F9]
     }
+    .myAccountDetails{
+        @apply block w-full pb-5 font-dm text-base text-[#767676] leading-7 font-bold border-b border-[#F0F0F0] pt-5 [&.active]:text-[#262626]
+    }
 }
 
 

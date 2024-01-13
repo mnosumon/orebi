@@ -14,6 +14,13 @@ import Journal from './pages/Journal';
 import Error from './pages/Error';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
+import MyAccount from './pages/myAccount/MyAccount';
+import Dashbord from './pages/myAccount/Dashbord';
+import Download from './pages/myAccount/Download';
+import Others from './pages/myAccount/Others';
+import AccountDetails from './pages/myAccount/AccountDetails';
+import Addresses from './pages/myAccount/Addresses';
+import Logout from './pages/myAccount/Logout';
 
 
 const App = () => {
@@ -28,6 +35,14 @@ const App = () => {
             <Route path='/journal' element={<Journal/>}/>
             <Route path='/cartpage' element={<CartPage/>}/>
             <Route path='/checkoutpage' element={<CheckoutPage/>}/>
+            <Route element={<MyAccount/>}>
+              <Route index path='/dashbord' element={<Dashbord/>}/>
+              <Route path='/download' element={<Download/>}/>
+              <Route path='/others' element={<Others/>}/>
+              <Route path='/accountDetails' element={<AccountDetails/>}/>
+              <Route path='/addresses' element={<Addresses/>}/>
+              <Route path='/logout' element={<Logout/>}/>
+            </Route>
             <Route path='*' element={<Error/>}/>
         </Route>
       </>
