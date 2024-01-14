@@ -77,7 +77,7 @@ const Cart = () => {
                     <h3 className='font-dm text-[#767676] font-normal leading-[23px] not-italic text-[23px]'>Subtotal: $44.00</h3>
                     <Flex className='justify-between mt-[13px] gap-[20px]'>
                         <Link to='/cartpage' className='commonButton_1'>View Cart</Link>
-                        <Link to='/checkoutpage' className='commonButton_1'>Checkout</Link>
+                        <Link to='/checkout-page' className='commonButton_1'>Checkout</Link>
                     </Flex>
                 </Flex>
             </Flex>

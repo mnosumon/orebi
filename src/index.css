@@ -19,6 +19,12 @@
     .myAccountDetails{
         @apply block w-full pb-5 font-dm text-base text-[#767676] leading-7 font-bold border-b border-[#F0F0F0] pt-5 [&.active]:text-[#262626]
     }
+    .singUpPageLabel{
+        @apply font-dm text-[#262626] font-bold text-base leading-6
+    }
+    .singUpPageInput{
+        @apply text-sm text-[#767676] font-normal font-dm outline-none border-b border-[#F0F0F0] pt-3 pb-4
+    }
 }
 
 

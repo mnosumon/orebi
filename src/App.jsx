@@ -22,6 +22,7 @@ import AccountDetails from './pages/myAccount/AccountDetails';
 import Addresses from './pages/myAccount/Addresses';
 import Logout from './pages/myAccount/Logout';
 import Login from './pages/Login';
+import SingUp from './pages/SingUp';
 
 
 const App = () => {
@@ -35,8 +36,9 @@ const App = () => {
             <Route path='/contacts' element={<Contacts/>}/>
             <Route path='/journal' element={<Journal/>}/>
             <Route path='/cartpage' element={<CartPage/>}/>
-            <Route path='/checkoutpage' element={<CheckoutPage/>}/>
+            <Route path='/checkout-page' element={<CheckoutPage/>}/>
             <Route path='/login' element={<Login/>}/>
+            <Route path='/singup' element={<SingUp/>}/>
             <Route element={<MyAccount/>}>
               <Route index path='/dashbord' element={<Dashbord/>}/>
               <Route path='/download' element={<Download/>}/>

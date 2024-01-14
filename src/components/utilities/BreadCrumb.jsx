@@ -10,7 +10,7 @@ const BreadCrumb = ({pathLastChild}) => {
       <Flex className='gap-2 items-center font-dm text-[#6D6D60] text-sm font-normal'>
         <Link to='/'>Home</Link>
         <FaAngleRight /> 
-        <Link className='font-dm text-[#6D6D60] text-sm font-normal'>{pathLastChild}</Link>
+        <Link className='capitalize font-dm text-[#6D6D60] text-sm font-normal'>{pathLastChild}</Link>
       </Flex>        
     </>
   )

@@ -14,7 +14,8 @@ const CupponCard = () => {
   return (
     <>
       {btnClose &&
-        <div className="absolute top-8 left-[10%]  p-2 border border-[#262626]">
+        <div className="pb-[150px]">
+          <div className="absolute top-8 left-[10%]  p-2 border border-[#262626]">
           <div className="">
             <form action="">
               <div className="relative ">
@@ -23,11 +24,12 @@ const CupponCard = () => {
               </div>
             </form>
           </div>
-        <Flex className='justify-between gap-2 mt-4'>
-          <button className='commonButton_1'>Submit</button>
-          <button onClick={buttonClose} className='commonButton_1'>Cencel</button>
-        </Flex>
-      </div>
+          <Flex className='justify-between gap-2 mt-4'>
+            <button className='commonButton_1'>Submit</button>
+            <button onClick={buttonClose} className='commonButton_1'>Cencel</button>
+          </Flex>
+        </div>
+        </div>
       }
     </>
   )
