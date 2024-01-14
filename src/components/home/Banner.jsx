@@ -12,11 +12,11 @@ const Banner = () => {
 
   let imageArr = [
     {
-      src: { BannerImage1 },
+      src: BannerImage1,
       id: "01"
     },
     {
-      src: { BannerImage2 },
+      src: BannerImage2,
       id: "02"
     }
   ]
@@ -27,7 +27,8 @@ const Banner = () => {
     },
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 1000,
+    autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     appendDots: dots => (
@@ -73,16 +74,18 @@ const Banner = () => {
     <>
 
       <Slider {...settings}>
-            <div className='!block w-full h-[597px] '>
-              <Link className='overflow-hidden outline-none'  to='#'>
-                <Image className='w-full h-full object-cover' source={BannerImage1}/>
-              </Link>
-            </div>
-            <div className='!block w-full h-[597px] '>
-              <Link className='overflow-hidden outline-none'  to='#'>
-                <Image className='w-full h-full object-cover' source={BannerImage1}/>
-              </Link>
-            </div>
+            
+              {
+                imageArr.map((item, index)=>(
+                  <div className='!block w-full h-[597px] '>
+                    <Link key={index} className='overflow-hidden outline-none'  to='#'>
+                      <Image className='w-full h-full object-cover' source={item.src}/>
+                    </Link>
+                  </div>
+                ))
+              }
+            
+
       </Slider>
         
     </>
