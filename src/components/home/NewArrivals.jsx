@@ -17,7 +17,7 @@ const NewArrivals = () => {
         <div className="mb-[118px]">
             <SectionHeading/>
             <Flex className="gap-10 justify-between flex-wrap">
-              <div className="w-[370px] h-[465px] ">
+              <div className="w-[370px] h-[465px] shadow-lg">
                   <div className="h-[370px] overflow-hidden relative group">
                     <Image className="h-full w-full object-cover" source={ArrivalsProduct1}/>
                     <div className="absolute top-5 left-5">
@@ -50,7 +50,7 @@ const NewArrivals = () => {
                     </div>
                   </div>
               </div>
-              <div className="w-[370px] h-[465px] ">
+              <div className="w-[370px] h-[465px] shadow-lg">
                   <div className="h-[370px] overflow-hidden relative group">
                     <Image className="h-full w-full object-cover" source={ArrivalsProduct2}/>
                     <div className="absolute top-5 left-5">
@@ -83,7 +83,7 @@ const NewArrivals = () => {
                     </div>
                   </div>
               </div>
-              <div className="w-[370px] h-[465px] ">
+              <div className="w-[370px] h-[465px] shadow-lg">
                   <div className="h-[370px] overflow-hidden relative group">
                     <Image className="h-full w-full object-cover" source={ArrivalsProduct3}/>
                     <div className="absolute top-5 left-5">
@@ -116,7 +116,7 @@ const NewArrivals = () => {
                     </div>
                   </div>
               </div>
-              <div className="w-[370px] h-[465px] ">
+              <div className="w-[370px] h-[465px] shadow-lg">
                   <div className="h-[370px] overflow-hidden relative group">
                     <Image className="h-full w-full object-cover" source={ArrivalsProduct4}/>
                     <div className="absolute top-5 left-5">
