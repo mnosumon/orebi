@@ -11,33 +11,75 @@ import {
 
 const Accordions = () => {
     let [location, setLocation] = useState(false)
-    let handleLocation = ()=>{
-        console.log("dsjkfh");
+    let handlePlus = ()=>{
+        setLocation(!location)
+    }
+    let [garmaney, setSarmaney] = useState(false)
+    let handleGarmany = ()=>{
+        setSarmaney(!location)
     }
   return (
     <>
-        <Accordion className='px-5'>
-            <AccordionItem>
-                <AccordionItemHeading>
-                    <AccordionItemButton  className='flex gap-x-5 justify-between items-center '>
-                        <h5 onChange={handleLocation} className=' py-7 text-[#262626] text-base font-bold leading-6'>Germany Office</h5>
-                        <FaPlus />
-                        {/* {
+                <div className="">
+                    <div className="flex px-5 justify-between items-center">
+                        <h5 onClick={handlePlus} className='cursor-pointer py-7 text-[#262626] text-base font-bold leading-6'>Germany Office</h5>
+                        {
                             location
                             ?
-                            
+                            <FaMinus onClick={handlePlus}/>
                             :
-                            <FaMinus/>
-                        } */}
-                    </AccordionItemButton>
-                </AccordionItemHeading>
-                <AccordionItemPanel>
+                            <FaPlus onClick={handlePlus} />
+                        }
+                        {/* <FaMinus/> */}
+
+                    </div>
+                    {
+                        location &&
+                        
                     <p className='py-4 bg-blue-300'>
                         Exercitation in fugiat est ut ad ea cupidatat ut in
                         cupidatat occaecat ut occaecat consequat est minim minim
                         esse tempor laborum consequat esse adipisicing eu
                         reprehenderit enim.
                     </p>
+                    }
+
+                 </div>
+                 <div className="">
+                    <div className="flex px-5 justify-between items-center">
+                        <h5 onClick={handleGarmany} className='cursor-pointer py-7 text-[#262626] text-base font-bold leading-6'>Germany Office</h5>
+                        {
+                            garmaney
+                            ?
+                            <FaMinus onClick={handleGarmany}/>
+                            :
+                            <FaPlus onClick={handleGarmany} />
+                        }
+                        {/* <FaMinus/> */}
+
+                    </div>
+                    {
+                        garmaney &&
+                        
+                    <p className='py-4 bg-blue-300'>
+                        Exercitation in fugiat est ut ad ea cupidatat ut in
+                        cupidatat occaecat ut occaecat consequat est minim minim
+                        esse tempor laborum consequat esse adipisicing eu
+                        reprehenderit enim.
+                    </p>
+                    }
+
+                 </div>
+
+        {/* <Accordion className='px-5'>
+            <AccordionItem>
+                <AccordionItemHeading>
+                    <AccordionItemButton  className='flex gap-x-5 justify-between items-center '>
+                        
+                    </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel>
+                    
                 </AccordionItemPanel>
             </AccordionItem>
             <AccordionItem>
@@ -71,7 +113,7 @@ const Accordions = () => {
                     </div>
                 </AccordionItemPanel>
             </AccordionItem>
-        </Accordion>
+        </Accordion> */}
     </>
   )
 }
