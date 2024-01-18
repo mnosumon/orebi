@@ -7,15 +7,9 @@ import { FaShoppingCart } from "react-icons/fa";
 import Image from '../utilities/Image';
 
 const ProductCard = ({productName,productImage,productPrice,isNew,discount,color}) => {
-  let [newProduct, setNewProduc] = useState()
+  let [newProduct, setNewProduc] = useState(isNew)
   useEffect(()=>{
     if (isNew == "true") {
-      setNewProduc(true)
-    }else{
-      setNewProduc(false)
-    }
-    
-    if (discount == "false") {
       setNewProduc(true)
     }else{
       setNewProduc(false)
@@ -28,15 +22,16 @@ const ProductCard = ({productName,productImage,productPrice,isNew,discount,color
               <Image className="h-full w-full object-cover" source={productImage}/>
               {
                 newProduct 
-                ?
+                  ?
                   <div className="absolute top-5 left-5">
                     <span className='py-[10px] px-8 text-[#FFFFFF] text-sm font-bold font-dm bg-[#262626]'>New</span>
                   </div>
                   :
                   <div className="absolute top-5 left-5">
-                    <span className='py-[10px] px-8 text-[#FFFFFF] text-sm font-bold font-dm bg-[#262626]'>Discount</span>
-                  </div>
+                  <span className='py-[10px] px-8 text-[#FFFFFF] text-sm font-bold font-dm bg-[#262626]'>{discount}</span>
+                </div>
               }
+                
               <div className="w-full h-[156px] bg-white absolute bottom-0 translate-y-full group-hover:translate-y-0 transition-all duration-500 p-6">
                 <ul className='flex flex-col gap-5'>
                   <li className="flex gap-4 items-center justify-end cursor-pointer">
