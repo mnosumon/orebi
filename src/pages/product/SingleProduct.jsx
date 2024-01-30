@@ -7,6 +7,11 @@ import Flex from '../../components/utilities/Flex'
 import newArrivalsProduct from '../../components/home/NewArrivalsProduct'
 
 const SingleProduct = () => {
+  let pathName = window.location.href
+  let pathArr = pathName.split('/')
+  let finalPath = pathArr[pathArr.length - 2]
+
+
   const { id } = useParams()
   let [singlePro, setSinglePro] = useState()
   useEffect(()=>{
@@ -14,12 +19,10 @@ const SingleProduct = () => {
     function findProduct(productId) {
       return id == productId.id
     }
-  },[])
+  },[id])
 
 
-  let pathName = window.location.href
-  let pathArr = pathName.split('/')
-  let finalPath = pathArr[pathArr.length - 2]
+ 
   return (
     <section>
       <div className="max-w-container mx-auto">
@@ -43,11 +46,34 @@ const SingleProduct = () => {
           </div>
         </div>
         <div className="">
-          <h3>{singlePro && singlePro[0].productName}</h3>
+          
           <div className="">
-            <h5 className="gap-5 font-dm text-base text-[#262626] font-bold">{
-              singlePro && singlePro[0].productPrice
-            }</h5>
+
+          <div>
+            {singlePro && singlePro[0].discount == "false" ? (
+              <span className="text-[#26262] text-xl font-dm font-bold mt-5">
+                {singlePro && singlePro[0].productPrice}
+              </span>
+            ) : (
+              <>
+                <del className="text-[#767676] text-xl font-dm font-bold mt-5">
+                  {singlePro && singlePro[0].productPrice}
+                </del>
+                <span className="text-[#262626] text-xl font-dm font-bold ml-5 mt-5">
+                  {
+                   
+                   singlePro && singlePro[0].productPrice - parseInt(singlePro && singlePro[0].discount)
+
+                  
+                  }
+                </span>
+              </>
+            )}
+          </div>
+            {/* <div className="flex gap-5 font-dm text-base text-[#262626] font-bold">
+              <del>{singlePro && singlePro[0].productPrice}</del>
+              <span></span>
+            </div> */}
             <Flex className="gap-5 font-dm text-base text-[#262626] font-bold">
               <h6>color</h6>
               <span>red</span>
