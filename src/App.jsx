@@ -23,6 +23,7 @@ import Addresses from './pages/myAccount/Addresses';
 import Logout from './pages/myAccount/Logout';
 import Login from './pages/Login';
 import SingUp from './pages/SingUp';
+import SingleProduct from './pages/product/SingleProduct';
 
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
             <Route path='/checkout-page' element={<CheckoutPage/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/singup' element={<SingUp/>}/>
+            <Route path='/product/:id' element={<SingleProduct/>}/>
             <Route element={<MyAccount/>}>
               <Route index path='/dashbord' element={<Dashbord/>}/>
               <Route path='/download' element={<Download/>}/>

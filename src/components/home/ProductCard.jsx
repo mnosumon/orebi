@@ -6,7 +6,7 @@ import { FiRefreshCw } from "react-icons/fi";
 import { FaShoppingCart } from "react-icons/fa";
 import Image from '../utilities/Image';
 
-const ProductCard = ({productName,productImage,productPrice,isNew,discount,color}) => {
+const ProductCard = ({productName,productImage,productPrice,isNew,discount,color,id}) => {
   let [newProduct, setNewProduc] = useState(isNew)
   useEffect(()=>{
     if (isNew == "true") {
@@ -19,7 +19,9 @@ const ProductCard = ({productName,productImage,productPrice,isNew,discount,color
     <Flex className="gap-10 justify-between flex-wrap">
         <div className="w-[370px] h-[465px] shadow-lg">
             <div className="h-[370px] overflow-hidden relative group">
-              <Image className="h-full w-full object-cover" source={productImage}/>
+              <Link to={`/product/${id}`} className=''>
+                <Image className="h-full w-full object-cover" source={productImage}/>
+              </Link>
               {
                 newProduct 
                   ?
