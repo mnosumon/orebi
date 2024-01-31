@@ -14,15 +14,19 @@ const SingleProduct = () => {
   let pathArr = pathName.split('/')
   let finalPath = pathArr[pathArr.length - 2]
 
-
-  const { id } = useParams()
-  let [singlePro, setSinglePro] = useState()
-  useEffect(()=>{
-    setSinglePro(newArrivalsProduct.filter(findProduct))
-    function findProduct(productId) {
-      return id == productId.id
-    }
-  },[id])
+  const {id} = useParams()
+  let singleProduct = newArrivalsProduct.filter(findProduct)
+  function findProduct(checkProduct) {
+    return id == checkProduct.id
+  }
+  // const { id } = useParams()
+  // let [singlePro, setSinglePro] = useState()
+  // useEffect(()=>{
+  //   setSinglePro(newArrivalsProduct.filter(findProduct))
+  //   function findProduct(productId) {
+  //     return id == productId.id
+  //   }
+  // },[id])
 
 
  
@@ -35,8 +39,8 @@ const SingleProduct = () => {
         </div>
 
         <div className="flex gap-10 flex-wrap">
-          <div className="w-[780px] h-[780px] bg-slate-400">
-            <Image source="#" alt="Different Angle"/>
+          <div className="w-[780px] h-[780px] overflow-hidden bg-slate-400">
+            <Image className="w-full h-full object-cover" source="#" alt="Different Angle"/>
           </div>
           <div className="w-[780px] h-[780px] bg-slate-400">
             <Image source="#" alt="Different Angle"/>
@@ -50,7 +54,7 @@ const SingleProduct = () => {
         </div>
         <div className="">
           <div className="mt-12">
-            <h4 className='font-dm text-[#262626] font-bold text-[39px]'>Product</h4>
+            <h4 className='font-dm text-[#262626] font-bold text-[39px]'>{singleProduct[0].productName}</h4>
           </div>
           <div className="w-[780px] mb-[124px]">
             <div className='w-full border-b border-b-[#F0F0F0]'>
@@ -67,8 +71,19 @@ const SingleProduct = () => {
                 </div>
               </Flex>
               <Flex className="gap-5 font-dm text-xl text-[#262626] font-bold pb-[30px]">
-                <del>$77</del>
-                <span>$66</span>
+              {
+                singleProduct[0].discount == false ?
+                (<span>${singleProduct[0].productPrice}</span>)
+                :
+                <>
+                <del>${singleProduct[0].productPrice}</del>
+                <span>${Math.floor(singleProduct[0].productPrice - (singleProduct[0].productPrice * singleProduct[0].discount) / 100)}</span>
+
+                {/* parseInt() bebohar kora valo */}
+                </>
+                
+              }
+              
               </Flex>
             </div>
             <div className='w-full py-9 border-b border-b-[#F0F0F0] my-[30px]'>
@@ -139,7 +154,7 @@ const SingleProduct = () => {
               <p className='font-dm text-sm pb-4 text-[#767676] leading-[30px]'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
             </div>
           </div>
-          <div className="">
+          <div className="mb-[340px]">
             <div className="w-[780px]">
               <h5 className='font-dm text-[#262626] font-bold text-[20px]'>Add a Review</h5>
 
@@ -153,10 +168,11 @@ const SingleProduct = () => {
                     <Input type="email" placeholder="Your email here" className="outline-none border-b border-[#F0F0F0] text-[#767676] font-dm text-sm font-normal pt-3 pb-4 capitalize" name="name"/>
                 </div>
                 <div className="flex flex-col w-full pt-6">
-                    <label htmlFor="name" className='text-[#262626] font-dm text-base font-bold leading-[23px] capitalize'>Message</label>
-                    <textarea name="messege" className="outline-none border-b border-[#F0F0F0] text-[#767676] font-dm text-sm font-normal pt-3 pb-20 capitalize resize-none" placeholder='Your message here' id="">
-                    
-                    </textarea>
+                    <label htmlFor="name" className='text-[#262626] font-dm text-base font-bold leading-[23px] capitalize'>Review</label>
+                    <textarea name="review" className=" outline-none border-b border-[#F0F0F0] text-[#767676] font-dm text-base font-normal pt-3 pb-20 capitalize resize-none" placeholder='Your review here' id=""></textarea>
+                </div>
+                <div className="pt-8">
+                  <Link className='inline-block font-dm text-white mt-[30px] font-bold leading-normal not-italic text-base px-[85px] py-4 border-[1px] border-solid border-[#2B2B2B] transition-all duration-500 hover:bg-[#767676] hover:text-white capitalize bg-black' to='#'>post</Link>
                 </div>
               </form>
             </div>
