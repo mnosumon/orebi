@@ -7,6 +7,7 @@ import { FaUserAlt,FaCaretDown, FaShoppingCart} from "react-icons/fa";
 import Cart from '../utilities/Cart';
 import Profile from '../utilities/Profile';
 import CatagoryCart from '../utilities/CatagoryCart';
+import { useSelector } from 'react-redux';
 
 
 const Search = () => {
@@ -65,6 +66,14 @@ const Search = () => {
     //         setCartShow(true)
     //     }
     // })
+    let [aa, setaa] = useState()
+    const data = useSelector((state) => state)
+    console.log(data.value);
+    // useEffect(()=>{
+        
+    //     let cartItem = data.addCart && data.addCart.value
+    //     console.log(cartItem.value);
+    // },[])
   return (
     <>
         <header className='bg-[#F5F5F3] py-6'>
@@ -93,8 +102,10 @@ const Search = () => {
                                 }
                             </Flex>
                         </div>
+                        <span className='h-12 w-12 bg-red-600'></span>
                         <div className='relative' ref={cartRef}>
                             <FaShoppingCart onClick={()=>setCartShow(!cartShow) /*handleCart*/} className='cursor-pointer'/>
+                            
                             {cartShow &&
                                 <Cart/>
                             }

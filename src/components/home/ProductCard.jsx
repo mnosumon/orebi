@@ -5,8 +5,20 @@ import { FaHeart } from "react-icons/fa";
 import { FiRefreshCw } from "react-icons/fi";
 import { FaShoppingCart } from "react-icons/fa";
 import Image from '../utilities/Image';
+import { useSelector, useDispatch } from 'react-redux'
+import { addCart } from '../../slice/addToCart';
 
-const ProductCard = ({productName,productImage,productPrice,isNew,discount,color,id}) => {
+const ProductCard = ({productName,productImage,productPrice,isNew,discount,color,id, fullItemSend}) => {
+
+  
+
+  const data = useSelector((state) => state)
+  
+  const dispatch = useDispatch()
+
+  let handleCart = ()=>{
+    dispatch(addCart(fullItemSend))
+  }
   let [newProduct, setNewProduc] = useState(isNew)
   useEffect(()=>{
     if (isNew == "true") {
@@ -44,7 +56,7 @@ const ProductCard = ({productName,productImage,productPrice,isNew,discount,color
                     <Link className='text-base text-[#767676] font-dm hover:text-[#000000] transition duration-300'>Compare</Link>
                     <FiRefreshCw className='text-sm' />
                   </li>
-                  <li className="flex gap-4 items-center justify-end cursor-pointer">
+                  <li onClick={handleCart} className="flex gap-4 items-center justify-end cursor-pointer">
                     <Link className='text-base text-[#767676] font-dm hover:text-[#000000] transition duration-300'>Add to Cart</Link>
                     <FaShoppingCart className='text-sm' />
                   </li>
