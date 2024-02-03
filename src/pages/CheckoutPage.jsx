@@ -4,7 +4,7 @@ import Flex from '../components/utilities/Flex'
 import { Link } from 'react-router-dom'
 import Input from '../components/utilities/Input'
 import CupponCard from '../components/utilities/CupponCard'
-import countryName from '../components/utilities/countryName'
+import countryName from '../components/utilities/CountryName'
 
 const CheckoutPage = () => {
   let pathName = window.location.href
