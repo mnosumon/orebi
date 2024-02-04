@@ -37,7 +37,7 @@ const ProductCard = ({productName,productImage,productPrice,isNew,discount,color
                   </div>
                   :
                   <div className="absolute top-5 left-5">
-                  <span className='py-[10px] px-8 text-[#FFFFFF] text-sm font-bold font-dm bg-[#262626]'>{discount}</span>
+                  <span className='py-[10px] px-8 text-[#FFFFFF] text-sm font-bold font-dm bg-[#262626]'>{discount}%</span>
                 </div>
               }
                 

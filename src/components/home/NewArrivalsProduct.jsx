@@ -3,11 +3,12 @@ import ArrivalsProduct1 from '../../assets/svg/ArrivalsProduct_1.svg'
 import ArrivalsProduct2 from '../../assets/svg/ArrivalsProduct_2.svg'
 import ArrivalsProduct3 from '../../assets/svg/ArrivalsProduct_3.svg'
 import ArrivalsProduct4 from '../../assets/svg/ArrivalsProduct_4.svg'
+import ArrivalsProduct5 from '../../assets/images/monitor.jpeg'
 
 let newArrivalsProduct = [
     {
       id: 0,
-      productName: "Basic Crew Neck Tee",
+      productName: "Smart watch",
       productImage: ArrivalsProduct1,
       productPrice: 44.00,
       isNew: "true",
@@ -16,7 +17,7 @@ let newArrivalsProduct = [
     },
     {
       id: 1,
-      productName: "Basic Crew Neck Tee",
+      productName: "Bascket",
       productImage: ArrivalsProduct2,
       productPrice: 64.00,
       isNew: "false",
@@ -34,7 +35,7 @@ let newArrivalsProduct = [
     },
     {
       id: 3,
-      productName: "Basic Crew Neck Tee",
+      productName: "Digital watch",
       productImage: ArrivalsProduct4,
       productPrice: 84.00,
       isNew: "false",
@@ -43,10 +44,10 @@ let newArrivalsProduct = [
     },
     {
       id: 4,
-      productName: "Basic Crew Neck Tee",
-      productImage: ArrivalsProduct4,
+      productName: "Monitor",
+      productImage: ArrivalsProduct5,
       productPrice: 72.00,
-      isNew: "false",
+      isNew: "true",
       discount: false,
       color: "red",
     },
