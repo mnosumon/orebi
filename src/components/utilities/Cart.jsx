@@ -5,30 +5,16 @@ import { Link } from 'react-router-dom';
 import Image from './Image';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useSelector, useDispatch } from 'react-redux'
 
 const Cart = () => {
-    let [itemDelate, setItemDelete] = useState([
-        {
-            id: 1,
-            product: 'Black',
-            price: '$44.00'
-        },
-        {
-            id: 2,
-            product: 'Green',
-            price: '$66.00'
-        },
-        {
-            id: 3,
-            product: 'Blue',
-            price: '$66.00'
-        },
-        {
-            id: 4,
-            product: 'White',
-            price: '$66.00'
-        }
-    ])
+
+    const cartData = useSelector((state) => state.addCart)
+    let addDataCart = cartData.value
+    // let finalCartData = addDataCart.length
+
+    let [itemDelate, setItemDelete] = useState(addDataCart)
+    console.log(itemDelate.id);
     let cartListRemove = (item)=>{
         let updateCart = itemDelate.filter((cartItem)=>
            cartItem.id !== item.id
@@ -59,16 +45,16 @@ const Cart = () => {
                             <Flex key={index} className='items-center justify-between '>
                                 <Flex className='gap-5 items-center'>
                                     <div className="h-20 w-20 bg-[#D8D8D8] overflow-hidden">
-                                        <Image className='w-full h-full object-cover'/>
+                                        <Image source={item.productImage} className='w-full h-full object-cover'/>
                                     </div>
                                     <Flex className='flex-col'>
-                                        <span className='font-dm text-[#262626] font-bold leading-[32px] not-italic text-base'>{item.product}</span>
-                                        <span className='font-dm text-[#262626] font-bold leading-[32px] not-italic text-base'>{item.price}</span>
+                                        <span className='font-dm text-[#262626] font-bold leading-[32px] not-italic text-base'>{item.productName}</span>
+                                        <span className='font-dm text-[#262626] font-bold leading-[32px] not-italic text-base'>${item.productPrice}</span>
                                     </Flex>
                                 </Flex>
-                                    <div onClick={()=>cartListRemove(item)} className='cursor-pointer' >
-                                    <ImCross className='text-[10px]'/>
-                                    </div>
+                                <div onClick={()=>cartListRemove(item)} className='cursor-pointer' >
+                                <ImCross className='text-[10px]'/>
+                                </div>
                             </Flex>
                         )
                     }
@@ -87,3 +73,25 @@ const Cart = () => {
 }
 
 export default Cart
+// [
+//     {
+//         id: 1,
+//         product: 'Black',
+//         price: '$44.00'
+//     },
+//     {
+//         id: 2,
+//         product: 'Green',
+//         price: '$66.00'
+//     },
+//     {
+//         id: 3,
+//         product: 'Blue',
+//         price: '$66.00'
+//     },
+//     {
+//         id: 4,
+//         product: 'White',
+//         price: '$66.00'
+//     }
+// ]

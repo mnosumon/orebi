@@ -7,8 +7,7 @@ import { FaUserAlt,FaCaretDown, FaShoppingCart} from "react-icons/fa";
 import Cart from '../utilities/Cart';
 import Profile from '../utilities/Profile';
 import CatagoryCart from '../utilities/CatagoryCart';
-import { useSelector } from 'react-redux';
-
+import { useSelector, useDispatch } from 'react-redux'
 
 const Search = () => {
     let [cartShow, setCartShow] = useState(false)
@@ -17,6 +16,10 @@ const Search = () => {
     let cartRef = useRef()
     let profileRef = useRef()
     let catagoryRef = useRef()
+
+    const cartData = useSelector((state) => state.addCart)
+    let addDataCart = cartData.value
+    let finalCartData = addDataCart.length
     useEffect(()=>{
         document.body.addEventListener('click', (e)=>{
             if (cartRef.current.contains(e.target)) {
@@ -39,6 +42,8 @@ const Search = () => {
         })
         
     },[]);
+
+    
 
     // useEffect=(()=>{
     //     document.body.addEventListener('click', (e)=>{
@@ -66,9 +71,7 @@ const Search = () => {
     //         setCartShow(true)
     //     }
     // })
-    let [aa, setaa] = useState()
-    const data = useSelector((state) => state)
-    console.log(data.value);
+    
     // useEffect(()=>{
         
     //     let cartItem = data.addCart && data.addCart.value
@@ -102,10 +105,17 @@ const Search = () => {
                                 }
                             </Flex>
                         </div>
-                        <span className='h-12 w-12 bg-red-600'></span>
                         <div className='relative' ref={cartRef}>
                             <FaShoppingCart onClick={()=>setCartShow(!cartShow) /*handleCart*/} className='cursor-pointer'/>
-                            
+                            {
+                                finalCartData 
+                                ?
+                                <div className='absolute h-10 w-10 rounded-full bg-red-600'>
+                                    <span className='text-3xl flex items-center justify-center'>{cartData && finalCartData}</span>
+                                </div>
+                                :
+                                ""
+                            }
                             {cartShow &&
                                 <Cart/>
                             }

@@ -6,19 +6,14 @@ import { FiRefreshCw } from "react-icons/fi";
 import { FaShoppingCart } from "react-icons/fa";
 import Image from '../utilities/Image';
 import { useSelector, useDispatch } from 'react-redux'
-import { addCart } from '../../slice/addToCart';
+import { cartData } from '../../slice/addToCart';
 
-const ProductCard = ({productName,productImage,productPrice,isNew,discount,color,id, fullItemSend}) => {
-
-  
-
-  const data = useSelector((state) => state)
-  
+const ProductCard = ({productName,productImage,productPrice,isNew,discount,color,id,fullItemSend}) => {
   const dispatch = useDispatch()
-
   let handleCart = ()=>{
-    dispatch(addCart(fullItemSend))
+    dispatch(cartData(fullItemSend))
   }
+
   let [newProduct, setNewProduc] = useState(isNew)
   useEffect(()=>{
     if (isNew == "true") {
