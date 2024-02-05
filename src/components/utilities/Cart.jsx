@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Flex from './Flex'
 import { ImCross } from "react-icons/im";
 import { Link } from 'react-router-dom';
@@ -13,8 +13,8 @@ const Cart = () => {
     let addDataCart = cartData.value
     // let finalCartData = addDataCart.length
 
-    let [itemDelate, setItemDelete] = useState(addDataCart)
-    console.log(itemDelate.id);
+    // let [itemDelate, setItemDelete] = useState(addDataCart)
+    
     let cartListRemove = (item)=>{
         let updateCart = itemDelate.filter((cartItem)=>
            cartItem.id !== item.id
@@ -32,8 +32,16 @@ const Cart = () => {
         });
         
     }
-  
+    
+    let [cartTotal, setcartTotal] = useState(0)
+    useEffect(()=>{
+        for (let index = 0; index < addDataCart.length; index++) {
+            cartTotal = cartTotal + addDataCart[index].productPrice
+            setcartTotal(cartTotal)
+        }
+    },[addDataCart])
 
+    
   return (
     <>  
         <ToastContainer />
@@ -41,7 +49,7 @@ const Cart = () => {
             <Flex className='flex-col border-[#262] border-[1px]'>
                 <Flex className='flex-col bg-[#F5F5F3] p-5 gap-3'>
                     {
-                        itemDelate.map((item, index)=>
+                        addDataCart.map((item, index)=>
                             <Flex key={index} className='items-center justify-between '>
                                 <Flex className='gap-5 items-center'>
                                     <div className="h-20 w-20 bg-[#D8D8D8] overflow-hidden">
@@ -60,7 +68,7 @@ const Cart = () => {
                     }
                 </Flex>
                 <Flex className='flex-col bg-[#FFF] p-5'>
-                    <h3 className='font-dm text-[#767676] font-normal leading-[23px] not-italic text-[23px]'>Subtotal: $44.00</h3>
+                    <h3 className='font-dm text-[#767676] font-normal leading-[23px] not-italic text-[23px]'>Subtotal: ${cartTotal}</h3>
                     <Flex className='justify-between mt-[13px] gap-[20px]'>
                         <Link to='/cartpage' className='commonButton_1'>View Cart</Link>
                         <Link to='/checkout-page' className='commonButton_1'>Checkout</Link>
