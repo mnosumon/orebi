@@ -6,32 +6,22 @@ import Image from './Image';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector, useDispatch } from 'react-redux'
+import { itemRemove } from '../../slice/addToCart';
 
 const Cart = () => {
 
     const cartData = useSelector((state) => state.addCart)
     let addDataCart = cartData.value
+
+    const dispatch = useDispatch()
     // let finalCartData = addDataCart.length
 
     // let [itemDelate, setItemDelete] = useState(addDataCart)
     
-    let cartListRemove = (item)=>{
-        let updateCart = itemDelate.filter((cartItem)=>
-           cartItem.id !== item.id
-        )
-        setItemDelete(updateCart)
-        toast.info('Successfully remove', {
-            position: "top-right",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-        });
+    let cartListRemove = (item,index) => {
+        dispatch(itemRemove(item.id))
+      };
         
-    }
     
     let [cartTotal, setcartTotal] = useState(0)
     useEffect(()=>{
@@ -49,7 +39,7 @@ const Cart = () => {
             <Flex className='flex-col border-[#262] border-[1px]'>
                 <Flex className='flex-col bg-[#F5F5F3] p-5 gap-3'>
                     {
-                        addDataCart.map((item, index)=>
+                        addDataCart.map((item, index)=>(
                             <Flex key={index} className='items-center justify-between '>
                                 <Flex className='gap-5 items-center'>
                                     <div className="h-20 w-20 bg-[#D8D8D8] overflow-hidden">
@@ -60,11 +50,11 @@ const Cart = () => {
                                         <span className='font-dm text-[#262626] font-bold leading-[32px] not-italic text-base'>${item.productPrice}</span>
                                     </Flex>
                                 </Flex>
-                                <div onClick={()=>cartListRemove(item)} className='cursor-pointer' >
+                                <div onClick={()=>cartListRemove(item,index)} className='cursor-pointer' >
                                 <ImCross className='text-[10px]'/>
                                 </div>
                             </Flex>
-                        )
+                        ))
                     }
                 </Flex>
                 <Flex className='flex-col bg-[#FFF] p-5'>

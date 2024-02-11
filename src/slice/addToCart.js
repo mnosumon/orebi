@@ -11,8 +11,12 @@ export const addToCart = createSlice({
     cartData: (state, actions) => {
       state.value = [...state.value,actions.payload]
     },
+    itemRemove(state,actions){
+      let itemMatch = actions.payload
+      state.value = state.value.filter(item => item.id !== itemMatch);  
+    }
   },
 })
-export const { cartData } = addToCart.actions
+export const { cartData, itemRemove } = addToCart.actions
 
 export default addToCart.reducer
