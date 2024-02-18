@@ -11,7 +11,11 @@ import { cartData } from '../../slice/addToCart';
 const ProductCard = ({productName,productImage,productPrice,isNew,discount,color,id,fullItemSend}) => {
   const dispatch = useDispatch()
   let handleCart = ()=>{
-    dispatch(cartData(fullItemSend))
+    let productArrivals = {
+      ...fullItemSend,
+      quantity: 1,
+    }
+    dispatch(cartData(productArrivals))
   }
 
   let [newProduct, setNewProduc] = useState(isNew)

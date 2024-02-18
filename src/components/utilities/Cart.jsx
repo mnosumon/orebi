@@ -25,9 +25,10 @@ const Cart = () => {
     
     let [cartTotal, setcartTotal] = useState(0)
     useEffect(()=>{
+        setcartTotal(0)
         for (let index = 0; index < addDataCart.length; index++) {
-            cartTotal = cartTotal + addDataCart[index].productPrice
-            setcartTotal(cartTotal)
+            cartTotal += parseInt(addDataCart[index].productPrice);
+            setcartTotal(cartTotal);
         }
     },[addDataCart])
 

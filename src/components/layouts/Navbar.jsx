@@ -1,15 +1,17 @@
 import React from 'react'
 import Image from '../utilities/Image'
 import Logo from '../../assets/images/logo.png'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 const Navbar = () => {
   return (
     <nav className='py-8'>
         <div className="max-w-container mx-auto ">
             <div className="flex justify-between items-center">
-                <div className="nav-logo">
-                    <Image className='' source={Logo} alt='Logo'/>
-                </div>
+                <Link to='/'>
+                    <div className="nav-logo">
+                        <Image className='' source={Logo} alt='Logo'/>
+                    </div>
+                </Link>
                 <div className="nav-menu">
                     <ul className='flex gap-14'>
                         <li>
