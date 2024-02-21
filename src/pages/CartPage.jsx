@@ -3,7 +3,6 @@ import BreadCrumb from '../components/utilities/BreadCrumb'
 import Flex from '../components/utilities/Flex'
 import { RxCross2 } from "react-icons/rx";
 import Image from '../components/utilities/Image';
-import Picture from '../assets/images/clock.jpg'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { itemDecrement, itemIncrement } from '../slice/addToCart';
@@ -14,14 +13,18 @@ const CartPage = () => {
   let finalPath = pathArr[pathArr.length - 1]
 
   const cartData = useSelector((state) => state.addCart)
-  let cartItem = cartData && cartData.value
+  let cartItemValue = cartData && cartData.value
+  let [cartItem, setCartItem] = useState(cartItemValue)
+  useEffect(()=>{
+    setCartItem(cartItemValue)
+  },[cartItemValue])
 
   let dispatch = useDispatch()
-  let handleDecremnt = (index)=>{
-    dispatch(itemDecrement(index))
-  }
   let handleIncremnt = (index)=>{
     dispatch(itemIncrement(index))
+  }
+  let handleDecremnt = (index)=>{
+    dispatch(itemDecrement(index))
   }
 
   return (
@@ -48,16 +51,16 @@ const CartPage = () => {
                     <Image source={item.productImage} className='h-full w-full'/>
                   </div>
                 </Flex>
-                <span className=' font-dm text-[#262626] font-bold text-base leading-[23px] capitalize'>Product name</span>
+                <span className=' font-dm text-[#262626] font-bold text-base leading-[23px] capitalize'>{item.productName}</span>
               </Flex>
               <Flex className='w-1/4 items-center font-dm text-[#262626] font-bold text-[20px]'>
                 <span>${item.productPrice}</span>
             </Flex>
             <Flex className='w-1/4 items-center font-dm text-[#262626] font-bold text-[20px]'>
               <Flex className='w-[140px] h-9 justify-between'>
-                <button onClick={()=>handleDecremnt(index)} className="cursor-pointer">-</button>
-                <span>{item.quantity}</span>
-                <button onClick={()=>handleIncremnt(index)}>+</button>
+                <button onClick={()=>handleDecremnt(index)} className={`text-[24px] ${item.quantity > 1 ? "cursor-pointer" : "cursor-not-allowed"}`}>-</button>
+                <span className='text-[24px]'>{item.quantity}</span>
+                <button onClick={()=>handleIncremnt(index)} className='text-[24px]'>+</button>
               </Flex>
             </Flex>
               <Flex className='w-1/4 items-center font-dm text-[#262626] font-bold text-[20px]'>

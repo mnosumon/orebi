@@ -11,26 +11,23 @@ import { itemRemove } from '../../slice/addToCart';
 const Cart = () => {
 
     const cartData = useSelector((state) => state.addCart)
-    let addDataCart = cartData.value
+    let addDataCart = cartData && cartData.value
 
     const dispatch = useDispatch()
-    // let finalCartData = addDataCart.length
-
-    // let [itemDelate, setItemDelete] = useState(addDataCart)
     
     let cartListRemove = (item,index) => {
         dispatch(itemRemove(item.id))
-      };
+    };
         
     
     let [cartTotal, setcartTotal] = useState(0)
-    useEffect(()=>{
+    useEffect(() => {
         setcartTotal(0)
-        for (let index = 0; index < addDataCart.length; index++) {
-            cartTotal += parseInt(addDataCart[index].productPrice);
+        for (let i = 0; i < addDataCart.length; i++) {
+            cartTotal += parseInt(addDataCart[i].productPrice);
             setcartTotal(cartTotal);
         }
-    },[addDataCart])
+      }, [addDataCart]);
 
     
   return (

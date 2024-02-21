@@ -10,9 +10,7 @@ export const addToCart = createSlice({
   reducers: {
     cartData: (state, actions) => {
       state.value = [...state.value,actions.payload]
-      console.log(state.value);
     },
-    
     itemRemove(state,actions){
       let itemMatch = actions.payload
       state.value = state.value.filter(item => item.id !== itemMatch);  
@@ -23,10 +21,10 @@ export const addToCart = createSlice({
     },
     itemDecrement(state,actions){
       let decrementIndex = actions.payload
-      if (decrementIndex > 1) {
+      if (state.value[decrementIndex].quantity > 1) {
         state.value[decrementIndex].quantity -= 1
       }
-    }
+    },
   },
 })
 export const { cartData, itemRemove, itemIncrement, itemDecrement} = addToCart.actions
