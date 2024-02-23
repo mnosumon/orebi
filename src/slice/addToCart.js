@@ -14,6 +14,7 @@ export const addToCart = createSlice({
     itemRemove(state,actions){
       let itemMatch = actions.payload
       state.value = state.value.filter(item => item.id !== itemMatch);  
+      console.log(itemMatch);
     },
     itemIncrement(state,actions){
       let incrementIndex = actions.payload

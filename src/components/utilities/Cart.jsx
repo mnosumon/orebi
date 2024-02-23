@@ -17,6 +17,7 @@ const Cart = () => {
     
     let cartListRemove = (item,index) => {
         dispatch(itemRemove(item.id))
+        
     };
         
     

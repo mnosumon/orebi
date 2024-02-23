@@ -24,6 +24,7 @@ import Logout from './pages/myAccount/Logout';
 import Login from './pages/Login';
 import SingUp from './pages/SingUp';
 import SingleProduct from './pages/product/SingleProduct';
+import Product from './pages/product/Product';
 
 
 const App = () => {
@@ -40,6 +41,7 @@ const App = () => {
             <Route path='/checkout-page' element={<CheckoutPage/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/singup' element={<SingUp/>}/>
+            <Route path='/products' element={<Product/>}/>
             <Route path='/product/:id' element={<SingleProduct/>}/>
             <Route element={<MyAccount/>}>
               <Route index path='/dashbord' element={<Dashbord/>}/>
