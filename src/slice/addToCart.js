@@ -26,8 +26,13 @@ export const addToCart = createSlice({
         state.value[decrementIndex].quantity -= 1
       }
     },
+    // calculateSubtotal: state => {
+    //   let total = state.value.reduce((total, item) => total + item.price, 0);
+    //   return total
+    // }
+    
   },
 })
-export const { cartData, itemRemove, itemIncrement, itemDecrement} = addToCart.actions
+export const { cartData, itemRemove, itemIncrement, itemDecrement, calculateSubtotal} = addToCart.actions
 
 export default addToCart.reducer
