@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import BreadCrumb from '../../components/utilities/BreadCrumb'
 import Paginate from '../../components/product/pagination/Paginate'
+import ShopByCategory from '../../components/product/catgories/ShopByCategory'
 
 
 const product = () => {
@@ -20,8 +21,10 @@ const product = () => {
             <BreadCrumb pathLastChild={finalPath}/>
           </div>
           <div className="w-full flex justify-between">
-            <div className="w-[373px] bg-red-400">
-              <h2>catagory</h2>
+            <div className="w-[373px]">
+              <div className="">
+                <ShopByCategory/>
+              </div>
             </div>
             <div className="w-[1190px]">
               <Paginate setItemsPerPage={setItemsPerPage} itemsPerPage={itemsPerPage} />

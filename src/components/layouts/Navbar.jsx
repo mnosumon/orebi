@@ -21,6 +21,9 @@ const Navbar = () => {
                             <NavLink className='font-dm text-[#767676] hover:text-[#262626] transition-all duration-300 text-base font-medium not-italic leading-normal [&.active]:text-[#000000]' to='/shop'>Shop</NavLink>
                         </li>
                         <li>
+                            <NavLink className='font-dm text-[#767676] hover:text-[#262626] transition-all duration-300 text-base font-medium not-italic leading-normal [&.active]:text-[#000000]' to='/products'>Products</NavLink>
+                        </li>
+                        <li>
                             <NavLink className='font-dm text-[#767676] hover:text-[#262626] transition-all duration-300 text-base font-medium not-italic leading-normal [&.active]:text-[#000000]' to='/about'>About</NavLink>
                         </li>
                         <li>
