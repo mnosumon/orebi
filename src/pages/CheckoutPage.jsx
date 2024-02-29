@@ -37,6 +37,7 @@ const CheckoutPage = () => {
       let {name,value} = e.target
       setFormData({...formData,[name]:value})
       setError("")
+
   }
   let formSubmit = ()=>{
     if (!formData.firstName) {

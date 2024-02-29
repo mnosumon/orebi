@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BreadCrumb from '../../components/utilities/BreadCrumb'
 import Paginate from '../../components/product/pagination/Paginate'
 
@@ -7,6 +7,10 @@ const product = () => {
   let pathName = window.location.href
   let pathArr = pathName.split('/')
   let finalPath = pathArr[pathArr.length - 1]
+
+  const [itemsPerPage, setItemsPerPage] = useState(12);
+
+
   return (
     <>
       <section className='mb-[140px] mt-[124px]'>
@@ -20,7 +24,7 @@ const product = () => {
               <h2>catagory</h2>
             </div>
             <div className="w-[1190px]">
-              <Paginate itemsPerPage={12} />
+              <Paginate setItemsPerPage={setItemsPerPage} itemsPerPage={itemsPerPage} />
             </div>
           </div>
         </div>
