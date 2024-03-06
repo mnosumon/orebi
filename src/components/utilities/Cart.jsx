@@ -6,16 +6,13 @@ import Image from './Image';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector, useDispatch } from 'react-redux'
-import { itemRemove, calculateSubtotal } from '../../slice/addToCart';
+import { itemRemove } from '../../slice/addToCart';
 
 
 const Cart = () => {
-    let [cartTotal, setcartTotal] = useState(0)
     const cartData = useSelector((state) => state.addCart)
     let addDataCart = cartData && cartData.value
-
-
-    // const subtotal = useSelector(state => state.addCart.value);
+    let cartTotal = cartData && cartData.cartTotal
     const dispatch = useDispatch();
     
 
@@ -25,17 +22,13 @@ const Cart = () => {
         dispatch(itemRemove(item.id))
     };
     
-
     // useEffect(() => {
-    //     dispatch(calculateSubtotal());
-    // }, [dispatch, addDataCart]);
-    useEffect(() => {
-        let demo = 0
-        addDataCart.map((item)=>{
-            demo += item.productPrice
-        })
-        setcartTotal(demo)
-    }, [addDataCart]);
+    //     let demo = 0
+    //     addDataCart.map((item)=>{
+    //         demo += item.productPrice
+    //     })
+    //     setcartTotal(demo)
+    // }, [addDataCart]);
 
 
     

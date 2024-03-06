@@ -60,10 +60,10 @@ console.log(currentItems );
     <>
       <div className="flex justify-between items-center mb-[60px]">
         <div className="flex gap-5">
-          <div className='w-9 h-9 flex items-center justify-center bg-[#FFFFFF] border border-[#979797] hover:bg-[#262626] hover:text-[#FFF] transition-all duration-500'>
+          <div className='w-9 h-9 flex items-center justify-center bg-[#FFFFFF] border border-[#979797] hover:bg-[#262626] hover:text-[#FFF] transition-all duration-500 cursor-pointer'>
             <BiSolidCategory className='text-base'/>
           </div>
-          <div className='w-9 h-9 flex items-center justify-center bg-[#FFFFFF] border border-[#979797] hover:bg-[#262626] hover:text-[#FFF] transition-all duration-500'>
+          <div className='w-9 h-9 flex items-center justify-center bg-[#FFFFFF] border border-[#979797] hover:bg-[#262626] hover:text-[#FFF] transition-all duration-500 cursor-pointer'>
             <AiOutlineBars className='text-base'/>
           </div>
         </div>
