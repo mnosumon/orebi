@@ -6,8 +6,10 @@ import BreadCrumb from '../../components/utilities/BreadCrumb'
 import Image from '../../components/utilities/Image'
 import Flex from '../../components/utilities/Flex'
 
+
 import newArrivalsProduct from '../../components/home/NewArrivalsProduct'
 import Input from '../../components/utilities/Input';
+import { useSelector } from 'react-redux';
 
 const SingleProduct = () => {
   let pathName = window.location.href
@@ -19,6 +21,14 @@ const SingleProduct = () => {
   function findProduct(checkProduct) {
     return id == checkProduct.id
   }
+
+
+  const cartData = useSelector((state) => state.addCart);
+  let extraImgData = cartData && cartData.singProduct;
+  let extraImg = extraImgData && extraImgData[0].extraProductImage;
+
+
+  
   // const { id } = useParams()
   // let [singlePro, setSinglePro] = useState()
   // useEffect(()=>{
@@ -39,18 +49,11 @@ const SingleProduct = () => {
         </div>
 
         <div className="flex gap-10 flex-wrap">
-          <div className="w-[780px] h-[780px] overflow-hidden bg-slate-400">
-            <Image className="w-full h-full object-cover" source={singleProduct[0].productImage} alt="Different Angle"/>
-          </div>
-          <div className="w-[780px] h-[780px] bg-slate-400">
-            <Image className="w-full h-full object-cover" source={singleProduct[0].productImage} alt="Different Angle"/>
-          </div>
-          <div className="w-[780px] h-[780px] bg-slate-400">
-            <Image className="w-full h-full object-cover" source={singleProduct[0].productImage} alt="Different Angle"/>
-          </div>
-          <div className="w-[780px] h-[780px] bg-slate-400">
-            <Image className="w-full h-full object-cover" source={singleProduct[0].productImage} alt="Different Angle"/>
-          </div>
+         {extraImg && extraImg.map((image, index) => (
+            <div key={index} className="w-[780px] h-[780px] bg-slate-400">
+              <Image className="w-full h-full object-cover" source={image} alt={`Extra Image ${index}`} />
+            </div>
+          ))}
         </div>
         <div className="">
           <div className="mt-12">

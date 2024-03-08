@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   value: [],
   cartTotal: 0,
-  singleProduct: [],
+  singProduct: [],
 }
 
 export const addToCart = createSlice({
@@ -32,8 +32,7 @@ export const addToCart = createSlice({
       state.cartTotal = state.value.reduce((total, item) => total + item.productPrice * item.quantity, 0);
     },
     singleData: (state, actions) => {
-      state.singleProduct = [actions.payload]
-      console.log(state.singleProduct);
+      state.singProduct = [actions.payload]
     },
   },
 })

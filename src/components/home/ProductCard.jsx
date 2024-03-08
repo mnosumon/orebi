@@ -20,11 +20,11 @@ const ProductCard = ({productName,productImage,productPrice,isNew,discount,color
   const handleSingleProduct = () => {
     let extraImg = {
       ...fullItemSend,
-      ExtraProductImage: ["https://cdn.dummyjson.com/product-images/1/1.jpg","https://cdn.dummyjson.com/product-images/1/2.jpg","https://cdn.dummyjson.com/product-images/1/3.jpg","https://cdn.dummyjson.com/product-images/1/4.jpg","https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"]
+      extraProductImage: ["https://cdn.dummyjson.com/product-images/1/1.jpg","https://cdn.dummyjson.com/product-images/1/2.jpg","https://cdn.dummyjson.com/product-images/1/3.jpg","https://cdn.dummyjson.com/product-images/1/4.jpg",]
     }
     dispatch(singleData(extraImg));
+    console.log(extraImg);
   }
-
   let [newProduct, setNewProduc] = useState(isNew)
   useEffect(()=>{
     if (isNew == "true") {
