@@ -77,8 +77,8 @@ const Banner = () => {
             
               {
                 imageArr.map((item, index)=>(
-                  <div className='!block w-full h-[597px] '>
-                    <Link key={index} className='overflow-hidden outline-none'  to='#'>
+                  <div key={index} className='!block w-full h-[597px] '>
+                    <Link  className='overflow-hidden outline-none'  to='#'>
                       <Image className='w-full h-full object-cover' source={item.src}/>
                     </Link>
                   </div>

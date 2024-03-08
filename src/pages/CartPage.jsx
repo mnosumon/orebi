@@ -14,7 +14,9 @@ const CartPage = () => {
 
   const cartData = useSelector((state) => state.addCart)
   let cartItemValue = cartData && cartData.value
+  let cartTotal = cartData && cartData.cartTotal
   let [cartItem, setCartItem] = useState(cartItemValue)
+
   useEffect(()=>{
     setCartItem(cartItemValue)
   },[cartItemValue])
@@ -79,7 +81,7 @@ const CartPage = () => {
               <table className='w-full'>
                 <tr>
                   <td className='text-base font-dm font-bold text-[#262626] leading-6 border border-[#F0F0F0] py-4 px-5'>Subtotal</td>
-                  <td className='text-base font-dm font-normal text-[#767676] leading-6 border border-[#F0F0F0] py-4 px-5'>389.99 $</td>
+                  <td className='text-base font-dm font-normal text-[#767676] leading-6 border border-[#F0F0F0] py-4 px-5'>{cartTotal} $</td>
                 </tr>
                 <tr>
                   <td className='text-base font-dm font-bold text-[#262626] leading-6 border border-[#F0F0F0] py-4 px-5'>total</td>

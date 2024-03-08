@@ -30,8 +30,8 @@ const NewArrivals = () => {
               > 
                 {
                   NewArrivalsProduct.map((item, index)=>(
-                    <SwiperSlide>
-                      <ProductCard key={index} fullItemSend={item} productName={item.productName} productImage={item.productImage} productPrice={item.productPrice} isNew={item.isNew} discount={item.discount} color={item.color} id={item.id}/>
+                    <SwiperSlide key={index}>
+                      <ProductCard fullItemSend={item} productName={item.productName} productImage={item.productImage} productPrice={item.productPrice} isNew={item.isNew} discount={item.discount} color={item.color} id={item.id}/>
                     </SwiperSlide>
                   ))
                 }

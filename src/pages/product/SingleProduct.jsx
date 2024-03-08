@@ -40,16 +40,16 @@ const SingleProduct = () => {
 
         <div className="flex gap-10 flex-wrap">
           <div className="w-[780px] h-[780px] overflow-hidden bg-slate-400">
-            <Image className="w-full h-full object-cover" source="#" alt="Different Angle"/>
+            <Image className="w-full h-full object-cover" source={singleProduct[0].productImage} alt="Different Angle"/>
           </div>
           <div className="w-[780px] h-[780px] bg-slate-400">
-            <Image source="#" alt="Different Angle"/>
+            <Image className="w-full h-full object-cover" source={singleProduct[0].productImage} alt="Different Angle"/>
           </div>
           <div className="w-[780px] h-[780px] bg-slate-400">
-            <Image source="#" alt="Different Angle"/>
+            <Image className="w-full h-full object-cover" source={singleProduct[0].productImage} alt="Different Angle"/>
           </div>
           <div className="w-[780px] h-[780px] bg-slate-400">
-            <Image source="#" alt="Different Angle"/>
+            <Image className="w-full h-full object-cover" source={singleProduct[0].productImage} alt="Different Angle"/>
           </div>
         </div>
         <div className="">

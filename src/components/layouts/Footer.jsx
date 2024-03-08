@@ -73,8 +73,8 @@ const Footer = () => {
                   <h4 className='font-dm text-[#262626] font-bold leading-[23px] text-lg not-italic uppercase pb-4'>Menu</h4>
                   <Ul className='gap-[6px] flex-col'>
                     {
-                      navarr.map((item)=>(
-                        <Li className='font-dm text-[#6D6D6D] text-base not-italic leading-6 font-normal' content={item.text}/>
+                      navarr.map((item, index)=>(
+                        <Li key={index} className='font-dm text-[#6D6D6D] text-base not-italic leading-6 font-normal' content={item.text}/>
                       ))
                     }
                   </Ul>
@@ -83,8 +83,8 @@ const Footer = () => {
                   <h4 className='font-dm text-[#262626] font-bold leading-[23px] text-lg not-italic uppercase pb-4'>shop</h4>
                   <Ul className='gap-[6px] flex-col'>
                     {
-                      shoparr.map((item)=>(
-                        <Li className='font-dm text-[#6D6D6D] text-base not-italic leading-6 font-normal' content={item.text}/>
+                      shoparr.map((item, index)=>(
+                        <Li key={index} className='font-dm text-[#6D6D6D] text-base not-italic leading-6 font-normal' content={item.text}/>
                       ))
                     }
                   </Ul>
@@ -93,8 +93,8 @@ const Footer = () => {
                   <h4 className='font-dm text-[#262626] font-bold leading-[23px] text-lg not-italic uppercase pb-4'>help</h4>
                   <Ul className='gap-[6px] flex-col'>
                     {
-                      privecyarr.map((item)=>(
-                        <Li className='font-dm text-[#6D6D6D] text-base not-italic leading-6 font-normal' content={item.text}/>
+                      privecyarr.map((item, index)=>(
+                        <Li key={index} className='font-dm text-[#6D6D6D] text-base not-italic leading-6 font-normal' content={item.text}/>
                       ))
                     }
                   </Ul>

@@ -6,7 +6,7 @@ import { FiRefreshCw } from "react-icons/fi";
 import { FaShoppingCart } from "react-icons/fa";
 import Image from '../utilities/Image';
 import { useSelector, useDispatch } from 'react-redux'
-import { cartData } from '../../slice/addToCart';
+import { cartData, singleData } from '../../slice/addToCart';
 
 const ProductCard = ({productName,productImage,productPrice,isNew,discount,color,id,fullItemSend}) => {
   const dispatch = useDispatch()
@@ -16,6 +16,13 @@ const ProductCard = ({productName,productImage,productPrice,isNew,discount,color
       quantity: 1,
     }
     dispatch(cartData(productArrivals))
+  }
+  const handleSingleProduct = () => {
+    let extraImg = {
+      ...fullItemSend,
+      ExtraProductImage: ["https://cdn.dummyjson.com/product-images/1/1.jpg","https://cdn.dummyjson.com/product-images/1/2.jpg","https://cdn.dummyjson.com/product-images/1/3.jpg","https://cdn.dummyjson.com/product-images/1/4.jpg","https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"]
+    }
+    dispatch(singleData(extraImg));
   }
 
   let [newProduct, setNewProduc] = useState(isNew)
@@ -30,7 +37,7 @@ const ProductCard = ({productName,productImage,productPrice,isNew,discount,color
     <Flex className="gap-10 justify-between flex-wrap">
         <div className="w-[370px] h-[465px] shadow-lg">
             <div className="h-[370px] overflow-hidden relative group">
-              <Link to={`/product/${id}`} className=''>
+              <Link to={`/product/${id}`} onClick={handleSingleProduct} className=''>
                 <Image className="h-full w-full object-cover" source={productImage}/>
               </Link>
               {
