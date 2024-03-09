@@ -116,6 +116,12 @@ const SingleProduct = () => {
                   <span className='text-base font-dm leading-[30px] text-[#767676]'>+</span>
                 </Flex>
               </Flex>
+              <Flex className="gap-7 items-center">
+                <span className='text-base font-dm leading-6 text-[#262626] font-bold uppercase'>status:</span>
+                <span className='text-base font-dm leading-[30px] text-[#767676] uppercase'>{
+                  extraImgData[0].stock > 0 ? `in stock  (${extraImgData[0].stock })` : "stock out"
+                }</span>
+              </Flex>
             </div>
             <div className="w-full mb-[55px]">
               <Flex className="gap-5 items-center">
