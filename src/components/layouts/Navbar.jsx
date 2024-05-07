@@ -21,7 +21,7 @@ const Navbar = () => {
       setShow(!show)
     }
   return (
-    <nav className='py-8'>
+    <nav>
         <div className="max-w-container mx-auto ">
             <div className="lg:flex lg:gap-[544px] justify-between items-center py-8">
                 <Link to='/'>
