@@ -81,7 +81,7 @@ const Search = () => {
     <>
         <header className='bg-[#F5F5F3] py-6'>
             <div className="max-w-container mx-auto">
-                <Flex className='justify-between items-center'>
+                <Flex className='justify-between items-center px-4'>
                     <div ref={catagoryRef}>
                         <Flex className='gap-3 items-center relative cursor-pointer '>
                             <FaBarsStaggered onClick={()=>setCatagoryCart(!catagoryCart)} />
@@ -92,7 +92,7 @@ const Search = () => {
                         </Flex>
                     </div>
                     <div className='relative'>
-                        <Input placeholder='Search Products' className='font-dm text-[#C4C4C4] font-normal leading-normal not-italic text-base w-[600px] py-4 pl-5 pr-12 outline-[#979797] bg-[#FFFFFF]'/>
+                        <Input placeholder='Search Products' className='font-dm text-[#C4C4C4] font-normal leading-normal not-italic text-base lg:w-[600px] py-4 pl-5 pr-12 outline-[#979797] bg-[#FFFFFF]'/>
                         <IoSearch className='absolute right-4 top-1/2 -translate-y-1/2'/>
                     </div>
                     <Flex className='gap-10' >
