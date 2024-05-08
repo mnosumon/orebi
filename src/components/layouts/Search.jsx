@@ -85,15 +85,15 @@ const Search = () => {
                     <div ref={catagoryRef}>
                         <Flex className='gap-3 items-center relative cursor-pointer '>
                             <FaBarsStaggered onClick={()=>setCatagoryCart(!catagoryCart)} />
-                            <p className='font-dm text-[#262626] font-normal leading-normal not-italic text-base'>Shop by Category</p>
+                            <p className='font-dm text-[#262626] font-normal leading-normal not-italic text-base hidden md:inline-block'>Shop by Category</p>
                             {catagoryCart &&
                                 <CatagoryCart/>
                             }
                         </Flex>
                     </div>
-                    <div className='relative'>
-                        <Input placeholder='Search Products' className='font-dm text-[#C4C4C4] font-normal leading-normal not-italic text-base lg:w-[600px] py-4 pl-5 pr-12 outline-[#979797] bg-[#FFFFFF]'/>
-                        <IoSearch className='absolute right-4 top-1/2 -translate-y-1/2'/>
+                    <div className='relative px-2'>
+                        <Input className="text-[#C4C4C4] py-2 lg:py-4 lg:pl-5 pl-3 pr-10 bg-[#ffffff] w-full outline-none border" type="text" placeholder="Search Products"  />
+                        <IoSearch className='absolute top-1/2 lg:right-5 right-3 -translate-y-1/2 text-base'/>
                     </div>
                     <Flex className='gap-10' >
                         <div className='' ref={profileRef}>
